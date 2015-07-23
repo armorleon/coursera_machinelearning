@@ -100,30 +100,8 @@ fprintf('Theta computed from gradient descent: \n');
 fprintf(' %f \n', theta);
 fprintf('\n');
 
-hold on;
-theta = zeros(3, 1);
-[theta, J_0_3] = gradientDescentMulti(X, y, theta, 0.01, num_iters);
-plot(1:numel(J_0_3), J_0_3, '-r', 'LineWidth', 2);
 
-theta = zeros(3, 1);
-[theta, J_0_03] = gradientDescentMulti(X, y, theta, 0.03, num_iters);
-plot(1:numel(J_0_03), J_0_03, '-g', 'LineWidth', 2);
 
-theta = zeros(3, 1);
-[theta, J_0_09] = gradientDescentMulti(X, y, theta, 0.09, num_iters);
-plot(1:numel(J_0_09), J_0_09, '-blue', 'LineWidth', 2);
-
-theta = zeros(3, 1);
-[theta, J_0_1] = gradientDescentMulti(X, y, theta, 0.1, num_iters);
-plot(1:numel(J_0_1), J_0_1, '-black', 'LineWidth', 2);
-
-theta = zeros(3, 1);
-[theta, J_0_3] = gradientDescentMulti(X, y, theta, 0.3, num_iters);
-plot(1:numel(J_0_3), J_0_3, '-g', 'LineWidth', 2);
-
-%theta = zeros(3, 1);
-%[theta, J_0_9] = gradientDescentMulti(X, y, theta, 0.9, num_iters);
-%plot(1:numel(J_0_9), J_0_9, '-r', 'LineWidth', 2);
 
 
 % Estimate the price of a 1650 sq-ft, 3 br house
@@ -131,8 +109,7 @@ plot(1:numel(J_0_3), J_0_3, '-g', 'LineWidth', 2);
 % Recall that the first column of X is all-ones. Thus, it does
 % not need to be normalized.
 price = 0; % You should change this
-theta
-price = [1, 1650, 3] *theta;
+
 
 % ============================================================
 
@@ -178,8 +155,6 @@ fprintf('\n');
 % ====================== YOUR CODE HERE ======================
 price = 0; % You should change this
 
-%[X mu sigma] = featureNormalize(X)
-price = [1, 1650, 3] *theta;
 
 % ============================================================
 
