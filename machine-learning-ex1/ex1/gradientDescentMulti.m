@@ -20,7 +20,10 @@ for iter = 1:num_iters
 
 
 
-
+    b = X * theta - y;
+    for i = 1 : size(X,2)
+        theta(i) = theta(i) - (alpha/m)*(b' * X(:,i))
+    end
 
 
 

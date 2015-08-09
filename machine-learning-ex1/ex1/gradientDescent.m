@@ -20,11 +20,10 @@ for iter = 1:num_iters
   
 
     b = X * theta - y;
+    for i = 1 : size(X,2)
+        theta(i) = theta(i) - (alpha/m)*(b' * X(:,i))
+    end
     
-    theta(1) = theta(1) - (alpha/m)*(b' * X(:,1))
-    theta(2) = theta(2) - (alpha/m)*(b' * X(:,2))
-
-
     % ============================================================
 
     % Save the cost J in every iteration    
