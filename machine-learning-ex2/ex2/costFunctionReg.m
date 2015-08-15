@@ -20,9 +20,8 @@ grad = zeros(size(theta));
 [J, grad] = costFunction(theta, X, y);
 
 theta_ = [0;theta(2:end)];
-J = J + lambda/(2*m) * (theta_' * theta_)
+J = J + lambda/(2*m) * (theta_' * theta_);
 grad = grad + ((lambda / m) * theta_);
-%h = sigmoid(X * theta);
 
 
 % =============================================================
