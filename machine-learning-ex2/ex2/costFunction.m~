@@ -22,14 +22,14 @@ grad = zeros(size(theta));
 
 J = (1/m) * (-y' * log(sigmoid(X * theta)) - (1-y')*log(1- sigmoid(X * theta)));
 
-h = sigmoid(X * theta);
-%============= grad solution 1============
+
+h = sigmoid(X * theta) - y;
 %for i = 1 : size(X, 2)
-%    theta(i) = (1/m) * (h - y)' * X(:,i);
+%    theta(i) = theta(i) - (1/m) * (h' * X(:,i));
 %end
 %grad = theta;
-%============= grad solution 2=========
-grad = (1/m) * X' * (h - y);
+
+grad = (1/m) * X' h
 
 % =============================================================
 
