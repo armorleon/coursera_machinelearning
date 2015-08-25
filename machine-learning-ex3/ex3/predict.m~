@@ -24,15 +24,14 @@ p = zeros(size(X, 1), 1);
 
 X = [ones(m, 1) X];
 
-A = sigmoid(X * Theta1');
+A = sigmoid(X * all_theta');
 
-n = size(A, 2);
+[x, p] = max(A, [], 2);
 
-A = [ones(m, 1) A];
 
-B = sigmoid(A * Theta2');
 
-[x, p] = max(B, [], 2);
+
+
 
 % =========================================================================
 
