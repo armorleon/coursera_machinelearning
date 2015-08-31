@@ -64,12 +64,15 @@ Theta2_grad = zeros(size(Theta2));
 
 %y = y * ones(1, num_labels) * eye(num_labels);
 
-Y=[];
-E = eye(num_labels);    % ???K??????????eye(10)??
-for i=1:num_labels
-    Y0 = find(y==i);    % ????y=i????,????
-    Y(Y0,:) = repmat(E(i,:),size(Y0,1),1);
-end
+% Y=[];
+% E = eye(num_labels);    % ???K??????????eye(10)??
+% for i=1:num_labels
+%     Y0 = find(y==i);    % ????y=i????,????
+%     Y(Y0,:) = repmat(E(i,:),size(Y0,1),1);
+% end
+
+Y = eye(num_labels); 
+Y = Y(y, :); % [5000, 10]
 
 X = [ones(m, 1) X];
 A = sigmoid(X * Theta1');
@@ -79,7 +82,6 @@ B = [ones(n, 1) A];
 
 h = sigmoid(B * Theta2');
 
-%cost = (1/m) * (-Y' * log(h) - (1 - Y') * log(1 - h));
 cost = (1/m) * (-Y .* log(h) - (1 - Y) .* log(1 - h)); 
 
 J = sum(cost(:));
