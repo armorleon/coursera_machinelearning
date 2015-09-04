@@ -91,7 +91,7 @@ T2 = Theta2(:,2:end);
 
 cost_T1 = T1 .* T1;
 cost_T2 = T2 .* T2;
-R = (lambda/(2*m)) * (sum(cost_T1(:)) + sum(cost_T2(:))); 
+R = (lamda/(2*m)) * (sum(cost_T1(:)) + sum(cost_T2(:))); 
 
 J = J + R;
 
