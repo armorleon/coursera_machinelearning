@@ -95,8 +95,21 @@ R = (lambda/(2*m)) * (sum(cost_T1(:)) + sum(cost_T2(:)));
 
 J = J + R;
 
+%backpropagation
+t3 = h - Y;
 
+a1 = X;
 
+z2 = X * Theta1';
+a2 = B;
+
+z3 = B * Theta2';
+a3 = sigmoid(z3);
+
+t2 = (t3 * T2) .* sigmoidGradient(z2);
+
+Theta1_grad = Theta1_grad + (1/m) * t2' * a1;
+Theta2_grad = Theta2_grad + (1/m) * t3' * a2;
 
 
 

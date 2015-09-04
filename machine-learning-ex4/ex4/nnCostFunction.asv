@@ -91,11 +91,23 @@ T2 = Theta2(:,2:end);
 
 cost_T1 = T1 .* T1;
 cost_T2 = T2 .* T2;
-R = (lamda/(2*m)) * (sum(cost_T1(:)) + sum(cost_T2(:))); 
+R = (lambda/(2*m)) * (sum(cost_T1(:)) + sum(cost_T2(:))); 
 
 J = J + R;
 
-
+%for t= 1:m
+    t3 = h - Y;
+ 
+    %a1 = X;
+    z2 = X * Theta1';
+    %a2 = sigmoid(z2);
+    
+    z3 = B * Theta2';
+    %a3 = sigmoid(z3);
+    
+    t2 = (t3 * Theta2(:, 2:end)) .* sigmoidGradient(z2);
+    
+%end
 
 
 
