@@ -53,10 +53,13 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
+%  Train linear regression with lambda = 0
 
-
-
-
+for i = 1:m
+    theta = trainLinearReg(X(1:i,:), y(1:i), lambda); %do not set lambda to 0, which is given from the function parameters
+    [error_train(i), grad] = linearRegCostFunction(X(1:i, :), y(1:i), theta, 0); % use lambda 0 to calculate errors   
+    [error_val(i), grad] = linearRegCostFunction(Xval, yval, theta, 0); % use lambda 0 to calculate errors
+end
 
 
 % -------------------------------------------------------------

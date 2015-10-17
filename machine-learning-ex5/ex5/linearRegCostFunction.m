@@ -29,7 +29,7 @@ J = (a' * a)/(2*m)  + lambda/(2*m) * (theta(2:end)' * theta(2:end));
 
 %========Option 2
 grad(1) = a' * X(:,1)/m + 0;  % for j = 0
-grad(2,:) = a' * X(:,2:end)/m + lambda/m * theta(2:end); % for j >= 1
+grad(2:end) = (a' * X(:,2:end)/m)' + lambda/m * theta(2:end); % for j >= 1
 
 % =========================================================================
 
