@@ -16,10 +16,13 @@ sim = 0;
 %
 %
 
+%option 1
 x = x1 - x2;
+sim = exp(-(x' * x) / (2 * sigma^2));
 
-sim = exp(-(x' * x) / (2 * sigma * sigma));
-
+%option 2
+%x = (x1 - x2) .^ 2;
+%sim = exp(-sum(x) / (2 * sigma^2));
 
 
 
