@@ -48,7 +48,16 @@ x = zeros(n, 1);
 %
 %
 
+vocabList = getVocabList();
 
+for i = 1:length(vocabList)
+    for j = 1:length(word_indices)
+        if strcmp(vocabList{i}, vocabList{word_indices(j)}) == 1
+            x(i) = 1;
+            break;
+        end
+    end
+end
 
 
 
