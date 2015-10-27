@@ -38,7 +38,7 @@ for i = 1:K
     centroids(i,:) = sum/s;
     
 end
-
+                                                                                                                                            
 
 
 
