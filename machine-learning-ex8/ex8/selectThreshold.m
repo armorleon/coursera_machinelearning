@@ -33,8 +33,6 @@ for epsilon = min(pval):stepsize:max(pval)
 
 
 
-
-
     % =============================================================
 
     if F1 > bestF1
