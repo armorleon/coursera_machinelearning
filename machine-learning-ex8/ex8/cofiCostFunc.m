@@ -40,14 +40,39 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
+sum = 0;
+for i = 1 : size(X)
+    for j = 1 : size(Theta)
+        if R(i,j) == 1 
+            sum = sum + (Theta(j,:) * X(i,:)' - Y(i, j)) ^ 2;
+        end
+    end
+end
+J = sum/2;
+    
 
 
+for j = 1 : size(Theta)
+    sum_theta = 0;
+    for i = 1 : size(X)
+        if R(i,j) == 1 
+            sum_theta = sum_theta + (Theta(j,:) * X(i,:)' - Y(i, j)) * X(i,:);
+        end
+    end
+    Theta_grad(j,:) = sum_theta;
+    
+end
 
-
-
-
-
-
+for i = 1 : size(X)
+    sum_X = 0;
+    for j = 1 : size(Theta)
+        if R(i,j) == 1 
+            sum_X = sum_X + (Theta(j,:) * X(i,:)' - Y(i, j)) * Theta(j,:);
+        end
+    end
+    X_grad(i,:) = sum_X;
+    
+end
 
 
 
