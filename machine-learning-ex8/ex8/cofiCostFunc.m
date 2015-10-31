@@ -48,7 +48,22 @@ for i = 1 : size(X)
         end
     end
 end
-J = sum/2;
+
+sum1 = 0;
+for j = 1 : size(Theta)
+   for k = 1 : num_features
+       sum1 = sum1 + Theta(j,k) ^ 2;
+   end
+end
+
+sum2 = 0;
+for i = 1 : size(X)
+   for k = 1 : num_features
+       sum2 = sum2 + X(i,k) ^ 2;
+   end
+end
+
+J = sum/2 + sum1 * lambda/2 + sum2 * lambda/2;
     
 
 
@@ -59,7 +74,7 @@ for j = 1 : size(Theta)
             sum_theta = sum_theta + (Theta(j,:) * X(i,:)' - Y(i, j)) * X(i,:);
         end
     end
-    Theta_grad(j,:) = sum_theta;
+    Theta_grad(j,:) = sum_theta + lambda * Theta(j,:);
     
 end
 
@@ -70,7 +85,7 @@ for i = 1 : size(X)
             sum_X = sum_X + (Theta(j,:) * X(i,:)' - Y(i, j)) * Theta(j,:);
         end
     end
-    X_grad(i,:) = sum_X;
+    X_grad(i,:) = sum_X + lambda * X(i,:);
     
 end
 
