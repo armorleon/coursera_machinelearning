@@ -89,8 +89,17 @@ for i = 1 : size(X)
     
 end
 
+%------------option 2----------
 
+% 5x3 size(X) 
+% 4x3 size(Theta)
+% 5x4 size(Y)
+% 5x4 size(R)
 
+%J = 1/2 * sum(sum(((X * Theta' - Y) .^ 2) .* R)) + lambda/2 * (sum(sum(Theta .^ 2)) + sum(sum(X .^2)));
+
+%X_grad = ((X * Theta' - Y) .* R) * Theta + lambda * X;
+%Theta_grad = transpose(((X * Theta' - Y) .* R)) * X + lambda * Theta;
 
 
 
